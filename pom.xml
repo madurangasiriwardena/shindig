@@ -1501,6 +1501,11 @@
     <dependencies>
       <!-- project dependencies -->
       <dependency>
+        <groupId>org.wso2.carbon</groupId>
+        <artifactId>org.wso2.carbon.utils</artifactId>
+        <version>${carbon.kernel.version}</version>
+      </dependency>
+      <dependency>
         <groupId>org.wso2.org.apache.shindig</groupId>
         <artifactId>shindig-features</artifactId>
         <version>${project.version}</version>
@@ -1562,12 +1567,6 @@
         <version>${project.version}</version>
         <type>test-jar</type>
         <scope>test</scope>
-      </dependency>
-
-      <dependency>
-        <groupId>org.wso2.carbon</groupId>
-        <artifactId>org.wso2.carbon.utils</artifactId>
-        <version>${carbon.kernel.version}</version>
       </dependency>
 
       <dependency>

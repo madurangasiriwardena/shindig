@@ -67,12 +67,6 @@
     </dependency>
     <dependency>
       <groupId>org.wso2.org.apache.shindig</groupId>
-      <artifactId>shindig-extras</artifactId>
-      <classifier>${shindig.jdk.classifier}</classifier>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.wso2.org.apache.shindig</groupId>
       <artifactId>shindig-sample-container</artifactId>
       <classifier>${shindig.jdk.classifier}</classifier>
       <version>${project.version}</version>
