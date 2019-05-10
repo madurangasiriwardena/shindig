@@ -45,12 +45,12 @@ public class WhitelistImpl implements Whitelist {
 
         whiteListedURIPatternList.add(Pattern.compile(getURIRegex("http://localhost:9003")));
 
-//        // Add carbon hostname followed by as the default whitelist URL.
-//        ServerConfiguration serverConfig = CarbonUtils.getServerConfiguration();
-//        String carbonHostname = serverConfig.getFirstProperty("HostName");
-//        String url = "https://" + carbonHostname + "/portal";
-//        defaultWhiteListedURIPattern = Pattern.compile(getURIRegex(url));
-//        log.info("URL: " + url + " compiled as the default whitelisted backend URI.");
+        // Add carbon hostname followed by as the default whitelist URL.
+        ServerConfiguration serverConfig = CarbonUtils.getServerConfiguration();
+        String carbonHostname = serverConfig.getFirstProperty("HostName");
+        String url = "https://" + carbonHostname + "/portal";
+        defaultWhiteListedURIPattern = Pattern.compile(getURIRegex(url));
+        log.info("URL: " + url + " compiled as the default whitelisted backend URI.");
     }
 
     public boolean isWhitelisted(HttpRequest request) {

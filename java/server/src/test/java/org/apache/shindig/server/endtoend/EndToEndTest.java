@@ -36,6 +36,7 @@ import com.gargoylesoftware.htmlunit.html.HtmlElement;
 import com.gargoylesoftware.htmlunit.html.HTMLParserListener;
 import com.google.common.collect.Maps;
 
+import org.easymock.EasyMock;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.After;
@@ -53,8 +54,11 @@ import org.junit.Test;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.wso2.carbon.base.ServerConfiguration;
+import org.wso2.carbon.utils.CarbonUtils;
 
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.net.URLEncoder;
 import java.util.List;
 import java.util.Map;
@@ -355,6 +359,21 @@ public class EndToEndTest {
 
   @BeforeClass
   public static void setUpOnce() throws Exception {
+
+    ServerConfiguration serverConfiguration = EasyMock.createMock(ServerConfiguration.class);
+
+    Field field = ServerConfiguration.class.getDeclaredField("instance");
+    field.setAccessible(true);
+
+    field.set(field.get(ServerConfiguration.class), serverConfiguration);
+    field.setAccessible(false);
+
+    Field field2 = CarbonUtils.class.getDeclaredField("isServerConfigInitialized");
+    field2.setAccessible(true);
+
+    field2.set(field2.get(CarbonUtils.class), true);
+    field2.setAccessible(false);
+    
     server = new EndToEndServer();
     server.start();
   }
